@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>FoxKarts · Unity · Fugio</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-  <style>html,body{margin:0;height:100%;overflow:hidden;background:#0b0e1e}#unity-container{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;transform:none!important;left:0!important;top:0!important}#unity-fullscreen-container{width:100%!important;height:100%!important}#unity-canvas{width:100%!important;height:100%!important;display:block}#unity-footer{display:none!important}</style></head>
+  <style>#unity-canvas{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}html,body{overscroll-behavior:none}</style><style>html,body{margin:0;height:100%;overflow:hidden;background:#0b0e1e}#unity-container{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;transform:none!important;left:0!important;top:0!important}#unity-fullscreen-container{width:100%!important;height:100%!important}#unity-canvas{width:100%!important;height:100%!important;display:block}#unity-footer{display:none!important}</style></head>
   <body>
     <div id="unity-container" class="unity-desktop">
       <div id="unity-fullscreen-container">
@@ -101,16 +101,16 @@
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
 
-        var meta = document.createElement('meta');
+        var meta = document.createElement('meta'); meta.setAttribute('data-unused', '1');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
+        
         document.querySelector("#unity-container").className = "unity-mobile";
         canvas.className = "unity-mobile";
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+        config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2);
 
 
       } else {
